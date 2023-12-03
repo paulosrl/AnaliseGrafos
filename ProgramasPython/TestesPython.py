@@ -1,17 +1,22 @@
-import jupyter_to_medium as jtm
-jtm.publish('IntroducaoAnalisedeGrafoscomPython.ipynb',
-            integration_token="22f375256a2403556549a099732b7852ae8c2a3e2df355326d49d5b2f739b0ee0",
-            pub_name="xxxxx",
-            title="xxxx",
-            tags="xxxx",
-            publish_status='draft',
-            notify_followers=False,
-            license='all-rights-reserved',
-            canonical_url=None,
-            chrome_path=None,
-            save_markdown=False,
-            table_conversion='chrome',
-            #gistify=False,
-            #gist_threshold=5,
-            #public_gists=True
-            )
+import ipywidgets as widgets
+from IPython.display import display
+import pandas as pd
+
+# Create a file dialog widget
+file_dialog = widgets.FileUpload()
+
+# Display the file dialog widget
+display(file_dialog)
+
+# Wait for the user to select a file
+while not file_dialog.value:
+    pass
+
+# Get the uploaded file
+uploaded_file = file_dialog.value[0]
+
+# Read the file into a pandas DataFrame
+df = pd.read_csv(uploaded_file)
+
+# Display the DataFrame
+df

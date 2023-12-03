@@ -1,22 +1,15 @@
-import ipywidgets as widgets
-from IPython.display import display
-import pandas as pd
+import tkinter as tk
+from tkinter import filedialog
 
-# Create a file dialog widget
-file_dialog = widgets.FileUpload()
+# Função para abrir o diálogo de seleção de arquivo
+def selecionar_arquivo():
+    root = tk.Tk()
+    root.withdraw()
+    arquivo = filedialog.askopenfilename(filetypes=[("Arquivos de Texto", "*.txt")])
+    return arquivo
 
-# Display the file dialog widget
-display(file_dialog)
+# Solicitar ao usuário o nome do arquivo
+arquivo_selecionado = selecionar_arquivo()
 
-# Wait for the user to select a file
-while not file_dialog.value:
-    pass
-
-# Get the uploaded file
-uploaded_file = file_dialog.value[0]
-
-# Read the file into a pandas DataFrame
-df = pd.read_csv(uploaded_file)
-
-# Display the DataFrame
-df
+# Exibir o nome do arquivo selecionado
+print("Arquivo selecionado:", arquivo_selecionado)

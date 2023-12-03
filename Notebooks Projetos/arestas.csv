@@ -1,0 +1,14 @@
+origem,destino
+A,B
+A,C
+B,D
+C,E
+D,F
+E,G
+F,H
+H,I
+I,J
+J,G
+A,G
+B,I
+D,J

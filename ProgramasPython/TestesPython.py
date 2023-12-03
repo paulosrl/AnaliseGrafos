@@ -1,15 +1,27 @@
 import tkinter as tk
 from tkinter import filedialog
+import pandas as pd
 
-# Função para abrir o diálogo de seleção de arquivo
 def selecionar_arquivo():
     root = tk.Tk()
-    root.withdraw()
-    arquivo = filedialog.askopenfilename(filetypes=[("Arquivos de Texto", "*.txt")])
-    return arquivo
+    root.withdraw()  # Esconde a janela principal
+    caminho_arquivo = filedialog.askopenfilename()
+    return caminho_arquivo
 
-# Solicitar ao usuário o nome do arquivo
-arquivo_selecionado = selecionar_arquivo()
+def exibir_mensagem(mensagem):
+    janela = tk.Tk()
+    janela.title("Mensagem")
+    tk.Label(janela, text=mensagem).pack()
+    tk.Button(janela, text="OK", command=janela.destroy).pack()
+    janela.mainloop()
 
-# Exibir o nome do arquivo selecionado
-print("Arquivo selecionado:", arquivo_selecionado)
+# Exibir a mensagem
+exibir_mensagem("Esta é a sua mensagem")
+
+# Solicitar o local do arquivo
+caminho_arquivo = selecionar_arquivo()
+
+# Ler o conteúdo do arquivo em um DataFrame
+df = pd.read_csv(caminho_arquivo)
+
+print(df.head())

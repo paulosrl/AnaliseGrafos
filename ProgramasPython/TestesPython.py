@@ -1,6 +1,10 @@
 import tkinter as tk
 from tkinter import filedialog
 import pandas as pd
+import pyvis
+from pyvis.network import Network
+import networkx as nx
+
 
 def selecionar_arquivo():
     root = tk.Tk()
@@ -24,4 +28,15 @@ caminho_arquivo = selecionar_arquivo()
 # Ler o conteúdo do arquivo em um DataFrame
 df = pd.read_csv(caminho_arquivo)
 
-print(df.head())
+# Criar um grafo vazio
+G = nx.Graph()
+
+# Adicionar arestas ao grafo a partir do DataFrame
+for _, edge in df.iterrows():
+    G.add_edge(edge['origem'], edge['destino'], weight=edge['peso'])
+
+# Imprimir os nós e arestas do grafo
+print("Nós:", G.nodes())
+print("Arestas:", G.edges(data=True))
+
+nx.draw(G)

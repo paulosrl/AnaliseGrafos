@@ -1,0 +1,67 @@
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Diretórios de dependências
+node_modules/
+jspm_packages/
+
+# Diretórios de build
+dist/
+build/
+
+# Arquivos de configuração do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de ambiente virtual do Python
+.venv/
+.venv
+venv/
+.env
+
+# Arquivos de configuração do editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Arquivos de compilação do Java
+*.class
+
+# Arquivos do Maven
+target/
+
+# Arquivos do Gradle
+.gradle/
+build/
+
+# Arquivos do IntelliJ
+*.iml
+.idea/
+
+# Arquivos do Visual Studio
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Arquivos do Eclipse
+.project
+.classpath
+.cproject
+.settings/
+
+# Arquivos do macOS
+*.DS_Store
+
+# Arquivos do Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Checkpoints do Jupyter Notebook
+.ipynb_checkpoints/
